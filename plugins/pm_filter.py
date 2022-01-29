@@ -465,7 +465,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "manuelfilter":
         buttons = [[
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help'),
-            InlineKeyboardButton('ʙᴜᴛᴛᴏɴs', callback_data='button')
+            InlineKeyboardButton('ᴄʟᴏsᴇ', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -475,7 +475,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "button":
         buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='manuelfilter')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='manuelfilter'),
+            InlineKeyboardButton('ᴄʟᴏsᴇ', callback_data='close_data')
+
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -485,7 +487,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "autofilter":
         buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help'),
+            InlineKeyboardButton('ᴄʟᴏsᴇ', callback_data='close_data')
+
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -506,7 +510,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "extra":
         buttons = [[
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help'),
-            InlineKeyboardButton('ᴀᴅᴍɪɴ', callback_data='admin')
+            InlineKeyboardButton('ᴄʟᴏsᴇ', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -527,7 +531,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "admin":
         buttons = [[
-            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='extra')
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='extra'),
+            InlineKeyboardButton('ᴄʟᴏsᴇ', callback_data='close_data')
+
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -538,7 +544,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "stats":
         buttons = [[
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help'),
-            InlineKeyboardButton('ʀᴇғʀᴇsʜ', callback_data='rfrsh')
+            InlineKeyboardButton('ʀᴇғʀᴇsʜ', callback_data='rfrsh'),
+            InlineKeyboardButton('ᴄʟᴏsᴇ', callback_data='close_data')
+
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         total = await Media.count_documents()
@@ -577,7 +585,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         grpid = await active_connection(str(query.from_user.id))
 
         if str(grp_id) != str(grpid):
-            await query.message.edit("ʏᴏᴜʀ ᴀᴄᴛɪᴠᴇ ᴄᴏɴɴᴇᴄᴛɪᴏɴ ʜᴀs ʙᴇᴇɴ ᴄʜᴀɴɢᴇᴅ. ɢᴏ ᴛᴏ /sᴇᴛᴛɪɴɢs.")
+            await query.message.edit("ʏᴏᴜʀ ᴀᴄᴛɪᴠᴇ ᴄᴏɴɴᴇᴄᴛɪᴏɴ ʜᴀs ʙᴇᴇɴ ᴄʜᴀɴɢᴇᴅ. ɢᴏ ᴛᴏ /settings.")
             return await query.answer('Azuma Privacy Is Crime')
 
         if status == "True":
@@ -684,7 +692,7 @@ async def auto_filter(client, msg, spoll=False):
         )
     else:
         btn.append(
-            [InlineKeyboardButton(text="📶 1/1", callback_data="pages")]
+            [InlineKeyboardButton(text="🈯️ 1/1", callback_data="pages")]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
