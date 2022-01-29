@@ -41,8 +41,9 @@ async def save_group(bot, message):
             InlineKeyboardButton('ᴜᴘᴅᴀᴛᴇs', url='https://t.me/Novus_Updates')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
-        await message.reply_text(
-            text=f"<b>ᴛʜᴀɴᴋʏᴏᴜ ғᴏʀ ᴀᴅᴅɪɴɢ ᴍᴇ ɪɴ {message.chat.title} \n\nɪғ ʏᴏᴜ ʜᴀᴠᴇ ᴀɴʏ ǫᴜᴇsᴛɪᴏɴs & ᴅᴏᴜʙᴛs ᴀʙᴏᴜᴛ ᴜsɪɴɢ ᴍᴇ ᴄᴏɴᴛᴀᴄᴛ sᴜᴘᴘᴏʀᴛ.</b>",
+        await message.reply_photo(
+            photo=random.choice(PICS),
+            caption = "<b>ᴛʜᴀɴᴋʏᴏᴜ ғᴏʀ ᴀᴅᴅɪɴɢ ᴍᴇ ɪɴ {message.chat.title} \n\nɪғ ʏᴏᴜ ʜᴀᴠᴇ ᴀɴʏ ǫᴜᴇsᴛɪᴏɴs & ᴅᴏᴜʙᴛs ᴀʙᴏᴜᴛ ᴜsɪɴɢ ᴍᴇ ᴄᴏɴᴛᴀᴄᴛ sᴜᴘᴘᴏʀᴛ.</b>",
             reply_markup=reply_markup)
     else:
         settings = await get_settings(message.chat.id)
